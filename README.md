@@ -18,9 +18,35 @@
 - [ ] Configure the [CODECOV_TOKEN](https://docs.codecov.com/docs/quick-start) secret for automated test coverage reports on PRs
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+Run Configuration API Plugin for IntelliJ IDEA provides a REST API to control run configurations from external scripts.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+Features:
+- HTTP API to list all run configurations
+- Start, stop, and restart run configurations remotely
+- Automatically starts an HTTP server on a random port when a project is opened
+- Configure a specific port or use a random port per project
+
+Perfect for automation scenarios, such as restarting services at regular intervals from external scripts.
+
+Port Configuration:
+- By default, the plugin uses a random port between 10000 and 65535
+- You can configure a specific port in the "Run Config API" tool window
+- Port settings are saved per project
+
+Example usage with curl (replace PORT with the actual port shown in the tool window):
+```
+# List all run configurations
+curl http://localhost:PORT/api/run-configurations
+
+# Start a run configuration
+curl http://localhost:PORT/api/run-configurations/MyService/start
+
+# Stop a run configuration
+curl http://localhost:PORT/api/run-configurations/MyService/stop
+
+# Restart a run configuration
+curl http://localhost:PORT/api/run-configurations/MyService/restart
+```
 
 To keep everything working, do not remove `<!-- ... -->` sections. 
 <!-- Plugin description end -->
@@ -28,10 +54,10 @@ To keep everything working, do not remove `<!-- ... -->` sections.
 ## Installation
 
 - Using the IDE built-in plugin system:
-  
+
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "intellij-run-config-api-plugin"</kbd> >
   <kbd>Install</kbd>
-  
+
 - Using JetBrains Marketplace:
 
   Go to [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID) and install it by clicking the <kbd>Install to ...</kbd> button in case your IDE is running.

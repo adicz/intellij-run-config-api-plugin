@@ -9,7 +9,7 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.adicz.intellijrunconfigapiplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow factoryClass="com.github.adicz.intellijrunconfigapiplugin.toolWindow.MyToolWindowFactory" id="Run Config API" icon="AllIcons.Actions.Execute"/>
         <postStartupActivity implementation="com.github.adicz.intellijrunconfigapiplugin.startup.MyProjectActivity" />
     </extensions>
 </idea-plugin>
